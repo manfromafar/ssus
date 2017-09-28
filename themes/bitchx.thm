@@ -1,0 +1,188 @@
+THEMEDESC BitchX.thm - The look of BitchX (by Serf)
+package theme-BitchX
+@ theme.name = [BitchX]
+
+# use BitchX-like automatic nick completion
+if (strlen($ss.bx_nick_completion) == 0) {@ ss.bx_nick_completion = 1}
+alias sbstats {
+    ^set status_user8 [15O10/16$#chops() 15N10/16$#nochops() 15T10/16$#chanusers($C)10]
+}
+EVAL XECHO -RAW $chr(27)(U
+SET NOTIFY_USERHOST_AUTOMATIC ON
+SET STATUS_DOES_EXPANDOS ON
+SET REVERSE_STATUS_LINE OFF
+SET STATUS_AWAY  10,12\(9,12zZzZ16${away_cnt? [ ] : []}$away_cnt1610)
+SET STATUS_CHANNEL 15,12%C
+SET STATUS_CHANOP @
+SET STATUS_CLOCK %T
+SET STATUS_CPU_SAVER  (%J)
+SET STATUS_FORMAT 10,12 [16,12%T10,12][%@%=15,12%N%#%A10,12]%M [%C10,12%+10,12%W] %Q %H%B%F %>%S
+SET STATUS_FORMAT1 10,12 [16$tolower(%T)10] [16%@9%=15%N%#%A10]%M [%C10%+10%W] %Q %H%B%F %>%S
+SET STATUS_FORMAT2 15,12 10[15Lag16$[-3]strip(s %2)10] [15O10/16$#chops() 15N10/16$#nochops() 15T10/16$#chanusers($C)10] %> [16%010]
+SET STATUS_HOLD  -- more --
+SET STATUS_HOLD_LINES  10,12(16%B10)
+SET STATUS_MAIL 10,12[15Mail: 16%M10]
+SET STATUS_MODE 16(10,12+15,12%+16,12)
+SET STATUS_NICK %N
+SET STATUS_NOTIFY  10,12[15Act: 16%F10]
+SET STATUS_OPER 07*
+SET STATUS_OVERWRITE (overtype)
+SET STATUS_QUERY  10,12[15Query: 16%Q10]
+SET STATUS_SCROLLBACK  (Scroll)
+SET STATUS_SERVER  on 15%S10
+SET STATUS_UMODE 16(10,12+15,12%#16,12)
+SET STATUS_VOICE
+SET STATUS_WINDOW 08,12^^^^^^^^
+SET BANNER 7ù16í7ù
+SET INPUT_PROMPT [$C] 
+@ theme.window_double = 1
+@ theme.reverse_status = 1
+alias theme.tslook @ function_return = [10\($sar(g/:/./$sar(g/AM/a/$sar(g/PM/p/$*)))10)]
+alias theme.pub @ function_return = [12<$012> $dc($2-)]
+alias theme.pub_ar @ function_return = [12<08$012> $dc($2-)]
+alias theme.pubother @ function_return = [12<$014:$112> $dc($2-)]
+alias theme.pubother_ar @ function_return = [12<5$014:$112> $dc($2-)]
+alias theme.leavea @ function_return = [$BANNER $0 14\[$userhost()14\] has left $1 14\[$3-14\]]
+alias theme.leaveu @ function_return = [$BANNER $0 14\[$userhost()14\] has left $1 14\[$3-14\]]
+alias theme.joina @ function_return = [$BANNER 11$0 14\[10$214\] has joined $1]
+alias theme.joinu @ function_return = [$BANNER 11$0 14\[10$214\] has joined $1]
+alias theme.sendpublica @ function_return = [13<$N\13> $1-]
+alias theme.sendpublicu @ function_return = [13<$N:$0\13> $1-]
+alias theme.sendactionchan @ function_return = [14ð 16$N $1-]
+alias theme.sendactionpriv @ function_return = [14ð -> 16$0/10$N $1-]
+alias theme.notifysignon @ function_return = [$BANNER Signon 14\($0\!$114)]
+alias theme.notifysignoff @ function_return = [$BANNER Signoff 14\($014)]
+alias theme.sendmsg @ function_return = [14\[4msg14\(07$014\)\] $dc($1-)]
+alias theme.msg @ function_return = [14\[13$014\(6$userhost()14\)\] $dc($1-)]
+alias theme.notice @ function_return = [14-13$014\(6$userhost()14\)- $dc($1-)]
+alias theme.sendnotice @ function_return = [14\[4notice14\(07$014\)\] $dc($1-)]
+alias theme.ctcpreply @ function_return = [$BANNER CTCP $2 reply from $0: $dc($3-)]
+alias theme.youarenot @ function_return = [$BANNER You're not on a channel]
+alias theme.cantfindarg @ function_return = [$BANNER Can't find $arg\.]
+alias theme.notchanop @ function_return = [$BANNER You are not chanop on $C\.]
+alias theme.nomatchbans @ function_return [$BANNER No matching BANs found on $C\.]
+alias theme.signoffa @ function_return = [$BANNER SignOff 16$1: $0 14\($dc($2-)\14)]
+alias theme.signoffu @ function_return = [$BANNER SignOff 16$1: $0 14\($dc($2-)\14)]
+alias theme.modea @ function_return = [$BANNER mode14/10$1 14\[$2-14\] by 16$0]
+alias theme.modeu @ function_return = [$BANNER mode14/10$1 14\[$2-14\] by 16$0]
+alias theme.modes @ function_return = [$BANNER Mode change 14\[$2-14\] for user 10$N]
+alias theme.servmodea @ function_return = [$BANNER 9ServerMode14/10$1 14[16$2-14] 16$0]
+alias theme.servmodeu @ function_return = [$BANNER 9ServerMode14/10$1 14[16$2-14] 16$0]
+alias theme.kicked @ function_return = [$BANNER You have been kicked off 10$2 by 10$1 14\($dc($3-)14\)]
+alias theme.kicka @ function_return = [$BANNER $0 was kicked off $2 by 10$1 14\($dc($3-)14\)]
+alias theme.kicku @ function_Return = [$BANNER $0 was kicked off $2 by 10$1 14\($dc($3-)14\)]
+alias theme.topica @ function_return = [$BANNER Topic 14\(10$114\): changed by 10$014: $dc($2-)]
+alias theme.topicu @ function_return = [$BANNER Topic 14\(10$114\): changed by 10$014: $dc($2-)]
+alias theme.action_ara @ function_return = [14* 16$0 $dc($2-)]
+alias theme.action_arm @ function_return = [14* 16$0/$1 $dc($2-)]
+alias theme.action_aru @ function_return = [14* 16$0/$1 $dc($2-)]
+alias theme.actiona @ function_return = [14ð $0 $dc($2-)]
+alias theme.actionm @ function_return = [14ð 08$0/$1 $dc($2-)]
+alias theme.actionu @ function_return = [14ð 08$0/$1 $2-]
+alias theme.ctcpreq @ function_return = [14>15>16> 09$before(! $1) 14[03$after(! $1)14] 03requested $strip(: $0)  from $2]
+alias theme.ctcpreqnorep @ function_return = [14>15>16> 11$before(! $1) 14[10$after(! $1)14] 10requested $strip(: $0)  from $2]
+alias theme.ctcprequest @ function_return = [$BANNER CTCP $2 request from $0 14\($userhost()14) to $1]
+alias theme.ctcprequestarg @ function_return = [$BANNER CTCP 14\($2-14) request from $0 14\($userhost()14) to $1]
+alias theme.ctcprequest @ function_return = [$BANNER 09$0 14\[03$userhost()14\] 03requested $toupper($2)  from $1]
+alias theme.ctcprequestarg @ function_return = [$BANNER 09$0 14\[03$userhost()14\] 03requested $toupper($2) \($dc($3-))  from $1]
+alias theme.mail @ function_return = [$BANNER You have $0! new mail messages, total of $1]
+alias theme.away @ function_return = [is away \($*)]
+alias theme.backa @ function_return = [is back "$*" , gone $tdiff2(${time() - diedtime[$winserv()]})]
+alias theme.backn @ function_return = [is back, gone $tdiff2(${time() - diedtime[$winserv()]})]
+on ^311 "*" {
+    secho 09ÚÄÄÄÄÄ---Ä--ÄÄ-ÄÄÄÄÄÄ---14Ä09--14ÄÄ09-14ÄÄÄÄÄÄÄÄÄ--- --  -
+    secho 09|16 $1 14\($2@$314\) 14\($country($right(3 $3))14)
+    secho 09: ircname  : $dc($5-)
+}
+on ^317 "*" {
+    secho 14: idle     : $tdiff2($2)
+    secho 14| signon   : $stime($3)
+}
+on ^307 "*" secho 14| register : $1-
+on ^301 "*" secho 14| away     : $1-
+on ^312 "*" secho 14| server   : $2 \($3-)
+on ^319 "*" secho 3| channels : $2-
+on ^313 "*" secho 14| operator : $1  (is NOT an IRC warrior)
+on ^318 "*" #
+on ^331 "*" xecho -b $1  No topic is set
+on ^332 "*" xecho -b Topic 14\(10$114\): $2-
+on ^333 "*" xecho -b 14\(10$114\): set by 10$2 at 10$stime($3)
+set status_user $ssus()
+theme.init
+alias bx.sc (list) {
+    fe ($list) xx {
+        @ :mod = pass(@+ $xx)
+        @ :spc = mod ? mod : [ ]
+        @ :nic = strip(@+ $xx)
+        @ :ret #= [14\[] ## [11] ## spc ## [12] ## [$[10]nic] ## [14\]] ## [ ]
+    }
+    RETURN $ret
+}
+
+on ^353 "*" {
+    @ temp.scchan = [$2]
+    @ temp.scusers #= [$3-]
+}
+
+on ^366 "*" {
+    xecho -b 14[9Users14\(03$temp.scchan14:03$#chanusers($temp.scchan)14\)]
+    fe ($temp.scusers) a b c d e {
+        echo $bx.sc($a $b $c $d $e)
+    }
+    @ temp.scchan =
+    @ temp.scusers =
+}
+on -channel_sync "*" xecho -b ssus: Join to $0 was synched in $1 secs!!
+on ^251 "*" {
+    @ tmp.users = [$3]
+    @ tmp.invis = [$6]
+    @ tmp.servers = [$9]
+    @ tmp.total = tmp.users + tmp.invis
+}
+on ^252 "*" {
+    @ tmp.opers = [$1]
+}
+
+on ^254 "*" {
+    @ tmp.channels = [$1]
+}
+
+on ^255 "*" {
+    @ tmp.local = [$3]
+    set floating_point_math off
+    xecho -b 14[local users on irc14\(16$tmp.local14)] ${(tmp.local * 100) / tmp.total}% 
+    xecho -b 14[global users on irc14\(16$tmp.users14)] ${(tmp.users * 100) / tmp.total}%
+    xecho -b 14[invisible users on irc14\(16$tmp.invis14)] ${(tmp.invis * 100) / tmp.total}%
+    xecho -b 14[ircops on irc14\(16$tmp.opers14)] ${(tmp.opers * 100) / tmp.total}%
+    xecho -b 14[total users on irc14\(16$tmp.total14)]
+    xecho -b 14[total servers on irc14\(16$tmp.servers14)] 14\(avg. ${tmp.total / tmp.servers} users per server14)
+    xecho -b 14[total channels created14\(16$tmp.channels14)] 14\(avg. ${tmp.total / tmp.channels} users per channel14)
+    set floating_point_math on
+}
+on ^221 "*" xecho -b Your user mode is [$1-]
+on ^256 "*" xecho -b $1-
+on ^257 "*" xecho -b $1-
+on ^258 "*" xecho -b $1-
+on ^259 "*" xecho -b $1-
+on ^371 "*" xecho -b $1-
+on ^372 "*" xecho -b $1-
+on ^376 "*" #
+on ^421 "*" xecho -b $1  $strip(: $2-)
+# Some BitchX functions
+alias theme.onmsglog set status_away  10,12\(9,12zZzZ16${away_cnt? [ ] : []}$away_cnt1610)
+alias _nickcomp fe (%$0% ?$0? %$0 ?$0 $0% $0? $0) patt {
+    @ function_return = pattern($patt $onchannel($C)) ? word(0 $pattern($patt $onchannel($C))) : function_return
+}
+
+on ^input "%: *" {
+    if (ss.bx_nick_completion && strlen($0) >= 2) {
+        @ :completed = _nickcomp($before(: $0))
+        sendline ${completed ? [$completed$chr(58) $1-] : [$*]}
+    } {
+        sendline $*
+    }
+}
+alias bnctog {
+    if (ss.bx_nick_completion) {@ ss.bx_nick_completion = 0;xecho -b BitchX-like nick completion now off;ssave -q} {@ ss.bx_nick_completion = 1;xecho -b BitchX-like nick completion now on;ssave -q}
+}
+xecho 14>15>16> BitchX theme loaded!

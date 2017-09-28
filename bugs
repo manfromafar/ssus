@@ -1,0 +1,13 @@
+[ done ] make /slog look like rest of script
+[ done ] why does /slog bring up /config menu at end?
+[ done ] remove references of config.win
+[ done ] change autoreply to autoreply on $N
+[ done ] Add freenode to servdetect
+[ done ] change signoff msg (pointless advertising to justify the ssus.org domain)
+[ done ] remove anything related to old notes module in alias.s and blue2.thm
+[ done ] remove a few loads for builtin epic scripts that are useless to world domination
+[ done ] got rid of /tload (cant even remember what /tload was)
+[ done ] remove convon(), convnum()
+[ done ] changed various comments
+[ done ] /power (echo power stats, /spower say power states)
+[ done ] fixed a bug with CTCP replies in themes

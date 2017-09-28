@@ -1,0 +1,95 @@
+THEMEDESC lice2.thm - Look of LiCe2 (by Serf)
+package theme-lice2
+@ theme.name = [lice2]
+
+^set banner ***
+set status_format %T %*%# %@%C%+ %A%W %H%B %F%M%Q %D %>%Y%Z [%X] %L
+set status_format1 %T [%*%N%#] [%@%=%C%+] %A %L %F %1 %>%2 %3
+set status_format2 <ssus> %H%B %A %M %Q %4 %5 %>%Z %6 %7 %8
+set status_away A
+set status_channel %C
+set status_chanop @
+set status_clock [%T]
+set status_cpu_saver [CPU Saver]
+set status_hold More:
+set status_hold_lines %B
+set status_mail mail:%M
+set status_mode (+%+)
+set status_nickname %N 
+set status_notify +%F
+set status_oper *
+set status_query /query:%Q
+set status_server %S]
+set status_umode (+%#)
+set status_window +W
+@ theme.window_double = 0
+@ theme.reverse_status = 0
+@ theme.tsformat = [%X]
+@ theme.usecolor = 0
+@ ss.theme = [$scriptdir/themes/lice2.thm]
+alias theme.tslook @ function_return = [[$*]]
+alias theme.pub @ function_return = [<$0> $dc($2-)]
+alias theme.pub_ar @ function_return = [<$0> $dc($2-)]
+alias theme.pubother @ function_return = [<$0:$1> $dc($2-)]
+alias theme.pubother_ar @ function_return = [<$0:$1> $dc($2-)]
+alias theme.leavea @ function_return = [$BANNER $0 \($2) left $1 at $Z $partmsg($3-)]
+alias theme.leaveu @ function_return = [$BANNER $0 \($2) left $1 at $Z $partmsg($3-)]
+alias theme.joina @ function_return = [$BANNER $0 \($2) joined $1 $Z]
+alias theme.joinu @ function_return = [$BANNER $0 \($2) joined $1 $Z]
+alias theme.sendpublica @ function_return = [<${N}> $1-]
+alias theme.sendpublicu @ function_return = [>${N}> $1-]
+alias theme.sendactionchan @ function_return = [* $N $1-]
+alias theme.sendactionpriv @ function_return = [* -> $0: $N $1-]
+alias theme.notifysignon @ function_return = [$BANNER Signon for $0!$1 at $Z]
+alias theme.notifysignoff @ function_return = [$BANNER Signoff for $0!$1 at $Z]
+alias theme.sendmsg @ function_return = [->  $0  $1-]
+alias theme.msg @ function_return = [ $0!$userhost()  $dc($1-)]
+alias theme.notice @ function_return = [[ $0!$userhost() ] $dc($1-)]
+alias theme.sendnotice @ function_return = [-> [ $0 ] $1-]
+alias theme.ctcpreply @ function_return = [$BANNER CTCP $2 reply from $0: $dc($3-)]
+alias theme.youarenot @ function_return = [$BANNER You're not on a channel]
+alias theme.cantfindarg @ function_return = [$BANNER Can't find $arg\.]
+alias theme.notchanop @ function_return = [$BANNER You are not chanop on $C\.]
+alias theme.nomatchbans @ function_return [$BANNER No matching BANs found on $C\.]
+alias theme.signoffa @ function_return = [$BANNER Signoff: $1 \($dc($2-))]
+alias theme.signoffu @ function_return = [$BANNER Signoff: $1 $0 \($dc($2-))]
+alias theme.modea @ function_return = [$BANNER Mode Change \"$2-\" on $1 by $0] 
+alias theme.modeu @ function_return = [$BANNER Mode Change \"$2-\" on $1 by $0]
+alias theme.modes @ function_return = [$BANNER Mode change \"$2-\" for $1 by $0]
+alias theme.servmodea @ function_return = [$BANNER Mode hack \"$2-\" on $1 by $0]
+alias theme.servmodeu @ function_return = [$BANNER Mode hack \"$2-\" on $1 by $0]
+alias theme.kicked @ function_return = [$BANNER You have been kicked off channel $2 by $1 \($dc($3-))]
+alias theme.kicka @ function_return = [$BANNER $0 has been kicked off channel $2 by $1 \($dc($3-))]
+alias theme.kicku @ function_Return = [$BANNER $0 has been kicked off $2 by $1 \($dc($3-))]
+alias theme.topica @ function_return = [$BANNER $0 has changed the topic on channel $1 to $dc($2-)]
+alias theme.topicu @ function_return = [$BANNER $0 has changed topic on channel $1 to $dc($2-)]
+alias theme.action_ara @ function_return = [* $0 $dc($2-)]
+alias theme.action_arm @ function_return = [* $0 $dc($2-)]
+alias theme.action_aru @ function_return = [* $0:$1 $dc($2-)]
+alias theme.actiona @ function_return = [* $0 $dc($2-)]
+alias theme.actionm @ function_return = [*> $0 $dc($2-)]
+alias theme.actionu @ function_return = [* $0/$1 $dc($2-)]
+alias theme.ctcpreq @ function_return = [$BANNER CTCP $strip(: $0) request: $before(! $1) \($after(! $1)) to $2]
+alias theme.ctcpreqnorep @ function_return = [$BANNER CTCP $strip(: $0) request: $before(! $1) \($after(! $1)) to $2 [no reply]]
+alias theme.ctcprequest @ function_return = [$BANNER CTCP $2 request: $0 \($userhost()) to $1]
+alias theme.ctcprequestarg @ function_return = [$BANNER Unknown CTCP $2 request: $0 \($userhost()) to $1 : $3-]
+alias theme.mail @ function_return = [$BANNER You have $0! new mail messages, total of $1]
+alias theme.away @ function_return = [& # $*]
+alias theme.backa @ function_return = [fg # $*\; gone $tdiff2(${time() - diedtime[$winserv()]})]
+alias theme.backn @ function_return = [fg # gone $tdiff2(${time() - diedtime[$winserv()]})]
+on ^311 "*" {
+    secho [ Whois $1\!$2@$3 \($country($right(3 $3))) ]
+    secho : 10ircname  : $5-
+}
+on ^317 "*" {
+    secho : 10idle set : $tdiff($2)
+    secho : 10signon   : $stime($3)
+}
+on ^318 "*" #
+on ^312 "*" secho : 10server   : $0 \($3-)
+on ^313 "*" secho : 10operator : $1-
+on ^319 "*" secho : 10channels : $2-
+on ^329 "*" xecho -b $1 created on $stime($2)
+^set input_prompt <$N> 
+theme.init
+eval echo $BANNER lice2.thm loaded

@@ -1,0 +1,36 @@
+# Everything ssus does at startup to get it's sanity and hold on reality.
+package init-inittab
+
+do {
+    fe ($glob($scriptdir/ssus/*.s)) file {
+        ^load $file
+    }
+    xecho -c $BANNER someone set up us the 7bomb! [loaded all core files]
+}
+
+do {
+    if ( !maxmode[$winserv()] ) { docheck }
+    @ :reset_bar = 1
+    foreach notes xx {
+        @ :reset_bar = 0
+    }
+    if ( reset_bar ) { ^set -STATUS_USER16 }
+    xecho -b $sar(g/././$ssus()) is loaded.
+    timestamp ${ss.timestamp? [on] : [off]}
+    timer -delete lag
+    timer -ref lag -rep 99999999999 20 {
+        # From LiCe 4.1.9 - quite mangled by Serf..
+        if (ssus())
+        {
+            ^set status_user2 ?
+            @ temp.last_ping = time()
+            fe ($myservers()) server {
+                @ :serv = servernum($server)
+                unless (isconnected($serv)) {continue}
+                xquote -S $serv PING $temp.last_ping
+            }
+        }
+    }
+    xtype ^L
+    load $ss.theme
+}

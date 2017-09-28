@@ -1,0 +1,10 @@
+package init-checks
+if (fexist(~/.ss.save) == 1) {
+    ^load ~/.ss.save
+} {
+    xecho -b ssus save file was not found. Please run /config.
+}
+
+if (fexist(~/.notes.save) == 1) {
+    ^load ~/.notes.save
+}

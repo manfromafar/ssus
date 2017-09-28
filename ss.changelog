@@ -1,0 +1,85 @@
+1.4.6
+Removed blue.thm/blue_leet.thm
+Added alien_blue.thm, alien_cyan.thm, alien_green.thm, alien_purple.thm, alien_red.thm [I kinda like 'em :)]
+used dict.* variables in dict.m
+added more error handling when a command is missing an argument
+got rid of the tmp.foo stuff in ctcp.s
+also got rid of theme.usecolor in default-formats.s
+Made chanvoices/chanlusers do an intelligent way of checking if the user is a chanvoice or chanluser, and used local variables.
+Messed with lag.s, removed references to iecho, used @ foo = [] instead of ASSIGN.
+Fixed netsplit.s to not use "main" variables.
+Fixed notes.save not being stubbed
+removed a comment (outdated) in servdetect.whatever
+100% rewrite out country.m - specific searches should be loads and loads faster (it was even slow on my P233MMX!)
+
+1.4.7
+Added green.thm "Meanie Green" by threedfx.  Modified leet.thm, looks kinda oogly, but hey, you might like it.  He does.
+
+1.4.8
+Added nickserv.s
+
+1.4.9
+fergot
+
+1.4.10
+away.m: Code cleanup.
+chop.m: Localized a variable I forgot to localize.
+chop.m: Code cleanup.
+dict.m: rewrite, removed /dict -o, might re-add later.
+dns.m: Cleanup/rewrite
+bitchx.thm: Fixed a bug.
+YAY@@!@!#@: things (msgs, notices, ctcp replies, etc) echo to the right window now.
+
+1.4.11
+dict.m: Fixed some bugs with stripping
+tig.m: Added /tig, like the BitchX /tig .  Brings a menu to unignore
+chop.m: Supports /op | /dop | /voice | /devoice with hostnames (i.e., /voice Serf*, /op *!*@*.prestige.net, /dop *!*@*.aol.com)
+power.m: Added - /power, silly op statistics.
+tab.s: Fixed a bug.
+tab.s: Added per-server msgtabbing (thanks fuzzy)
+chop.m: the flags for /k now kick everyone matching such mask when a ban is set.
+slash.m: Cleaned up output, more colorful/readable imho, less wasted space.
+ons.s: added stripping of ^M from dcc chat cuz pirch likes to send ^Ms in dcc chat
+ons.s: removed some dead code I left around (oops)
+logging.s: Fixed a bug
+config.m: Added a "config window"
+
+2.0
+ss.scr: Changed version to 2.0 - No extremely signifigant code changes, but we're stable and less buggy, and have been 1.x for ages.
+ss.scr: Got rid of silly default replies for CTCPs
+ss.scr: changed quit/kick msgs
+ss.scr: Got rid of some cruft that isn't useful anymore.
+alias.m: Added one or two more comments
+ctcp.s: If the silly reply modifier variable isn't set, return a default or no reply
+tab.s: Fixed bug - multiserver tabbing works great
+ss.scr: Restructured entirely
+ss.scr: No more annoying "Loaded blah.whatever" all over the place
+alias.s/functions.s: /uptime (alias.s) conflicts with $uptime() (functions.s), oops, renamed $uptime() to $up()
+ons.s: Auto unban of <you>
+
+2.0.1
+Fixed /play bug
+Fixed /sc when you aren't on the channel
+
+2.1
+Added /sdcc (file-pack offering)
+Added a hybrid6 script
+Added operview
+fixed /tig
+fixed func.thm
+got rid of junkage
+fixed lagcheck more
+
+2.2 - 3.0
+Made compatible with epic4-1.0+
+Removed /sdcc (it's broken)
+Removed a bunch of old bs from ons.s
+Removed "theme modules" (never used)
+Fixed dict.m (/dict works again)
+Completely re-did /config (new config.m)
+Removed tons of meaningless crap
+Talkcity compatibility code removed
+Release ssus 3.0
+
+3.0.1
+ssus is back in development - yay.  I plan to (attempt) to make ssus epic4-2.x compatible and convert code to be more efficient.  Thanks to all the folks that still use it today (Boarder2, dreemkill, rj, et cetera)

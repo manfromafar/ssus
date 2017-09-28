@@ -1,0 +1,34 @@
+# SHOUTZ@#$
+# ravi (Aka Ravikant Rao) (my first diehard ssus supporter  :P) 
+# Boarder2 (Aka Willie Zutz) (Long time supporter/tester) 
+# RuneB (Aka Ned Crigler) ("[de]motivation") 
+# Shawn (Aka.. i dunno, Shawn Something) (early tester, caused me to work on ssus again when I quit long ago.) 
+# dreemkill (Aka Justin Creveling) (A long-time supporter)
+# jnelson (elite epic client) 
+# srfrog (elite script that taught me a lot.) 
+# Kroger BigK cola (official drink of me.)
+# EFNet's lameness
+package ssus
+
+
+# Directory your shit is in
+@ scriptdir = [~/.ss]
+
+# some epic scripts that are useful/have some needed functions
+load files
+load grep
+
+alias fcat {
+    @ fd = open($0 R)
+    while (!eof($fd)) { return $read($fd) }
+    @ close($fd)
+}
+
+# Load our default sets first
+eval load $scriptdir/init/defaults.init
+
+# Secondly, check to see if save files exist
+eval load $scriptdir/init/checks.init
+
+# Thirdly, load the init functions
+eval load $scriptdir/init/inittab

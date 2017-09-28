@@ -1,0 +1,209 @@
+THEMEDESC crack3.thm - crackrock (by Serf)
+package theme-crack3
+@ theme.name = [crack3]
+EVAL XECHO -RAW $chr(27)(U
+
+^set status_does_expandos on
+^set BANNER 14:06:13:
+^set status_format %T [%*%=%N%#] %@%C%+ %W %A %L %H%B %F%M%Q %1 %>%D%2 %3
+^set status_format1 13Ú14ÄÄÄ$tolower(%T)14ÄÄ%AÄ%QÄ%FÄ%MÄ%DÄ ÄÄ Ä     %>Ä ÄÄ ÄÄÄÄÄ[10ssus14/16$ssus.version14]ÄÄ6¿
+^set status_format2 06À14ÄÄ(%*%=%@10%N%#14) 12ù 14(%C%+14) 12ù 14%>\(10u14/11$word(0 $tdiff2(${time() - F})) 10w14/11$winnum() 10l14/11%214)Ä6Ä13Ù
+^set status_away 14[16A14]
+^set status_channel 10%C14
+^set status_chanop 11@
+^set status_clock 14[16%T14]
+^set status_cpu_saver  (CPU)
+^set status_hold  -- more --
+^set status_hold_lines 14(16%B14) 
+^set status_mail 14[10M14: 11%M14]
+^set status_mode 14/10+11%+
+^set status_nickname %N
+^set status_notify 14[16N14/10%F14]
+^set status_oper 8*14
+^set status_query 14[16Q14/10%Q14]
+^set status_server  via %S
+^set status_umode 14/10+11%#
+^set status_window [ş]
+@ theme.window_double = 1
+@ theme.reverse_status = 1
+@ theme.tsformat = [%I:%M%p]
+@ ss.theme = [$scriptdir/themes/crack3.thm]
+alias theme.tslook @ function_return = [10\($sar(g/:/./$sar(g/AM/a/$sar(g/PM/p/$*)))10)]
+alias theme.pub @ function_return = [06<$006> $dc($2-)]
+alias theme.pub_ar @ function_return = [06<11$006> $dc($2-)]
+alias theme.pubother @ function_return = [14<$114/$014> $dc($2-)]
+alias theme.pubother_ar @ function_return = [14<$114/11$014> $dc($2-)]
+alias theme.leavea @ function_return = [$BANNER $0 14[$214] has left $1]
+alias theme.leaveu return $theme.leavea($*)
+alias theme.joina @ function_return = [$BANNER 11$0 14[10$214] has joined $1]
+alias theme.joinu return $theme.joina($*)
+alias theme.sendpublica @ function_return = [14\($N14) $1-]
+alias theme.sendpublicu @ function_return = [14\($N14/$014) $1-]
+alias theme.sendactionchan @ function_return = [14ù12ì14ù $N $1-]
+alias theme.sendactionpriv @ function_return = [14ù12ì14ù -> $N14/$0 $1-]
+alias theme.notifysignon @ function_return = [$BANNER 14[16notify14/$mmfunky(signon)14] $0 at 10$tolower($Z)]
+alias theme.notifysignoff @ function_return = [$BANNER 14[16notify14/$mmfunky(signoff)14] $0 at 10$tolower($Z)]
+alias theme.sendmsg @ function_return = [¯ 14[13m06sg14\(13$014)] $1-]
+alias theme.msg @ function_return = [14[13$014\(06$userhost()14)] $dc($1-)]
+alias theme.sendnotice @ function_return = [¯ 14[12n02otice14\(12$014)] $1-]
+alias theme.notice @ function_return = [14-12$014- $dc($1-)]
+alias theme.ctcpreply @ function_return = [$BANNER CTCP 16$2 reply from 10$014: $dc($3-)]
+alias theme.youarenot @ function_return = [$BANNER You're not on a channel!]
+alias theme.cantfindarg @ function_return = [$BANNER Can't find $arg\.]
+alias theme.notchanop @ function_return = [$BANNER You're not opped on $C\.]
+alias theme.nomatchbans @ function_return [$BANNER No matching BANs found on $C\.]
+alias theme.signoffa @ function_return = [$BANNER 14[16signoff14/$ccfunky($0)14] 16$1 14\($dc($2-)14)]
+alias theme.signoffu return $theme.signoffa($*)
+alias theme.modea @ function_return = [$BANNER 14[16mode14/$ccfunky($1)\(16$2-)14] by 11$0] 
+alias theme.modeu return $theme.modea($*)
+alias theme.modes @ function_return = [$BANNER Mode change 14[16$2-14] for user 10$1]
+alias theme.servmodea @ function_return = [11$BANNER Mode hack 14\($2-14) on $1 by $0]
+alias theme.servmodeu @ function_return = [11$BANNER Mode hack 14\($2-14) on $1 by $0]
+alias theme.kicked @ function_return = [$BANNER 16You were kicked off $2 by 10$1 14\($dc($3-)14)]
+alias theme.kicka @ function_return = [$BANNER 16$0 was kicked off $2 by 10$1 14\($dc($3-)14)]
+alias theme.kicku return $theme.kicka($*)
+alias theme.topica @ function_return = [$BANNER 14[16topic14/$ccfunky($1)14\($014)] $dc($2-) ]
+alias theme.topicu return $theme.topica($*) 
+alias theme.action_ara @ function_return = [14* 08$0/$1 $dc($2-)]
+alias theme.action_arm @ function_return = [14* 14[11a10ction14\(11$N14)] ùìù $0 $dc($2-)]
+alias theme.action_aru @ function_return = [14* 08$0/$1 $dc($2-)]
+alias theme.actiona @ function_return = [14* 08$0/$1 $dc($2-)]
+alias theme.actionm @ function_return = [14* 14[11a10ction14\(11$N14)] ùìù $0 $dc($2-)]
+alias theme.actionu @ function_return = [14* 08$0/$1 $dc($2-)]
+alias theme.ctcpreq @ function_return = [14:15:16: 16$before(! $1) 14[06$after(! $1)14] 06requested 13$strip(: $0)06 from you]
+alias theme.ctcpreqnorep @ function_return = [14:15:16: 16$before(! $1) 14[06$after(! $1)14] 06requested 13$strip(^A: $0)06 from you 14[cloak14/16on14]]
+alias theme.ctcprequest @ function_return = [14:15:16: 16$0 14[06$userhost()14] 06requested 13$206 from you]
+alias theme.ctcprequestarg @ function_return = [14:15:16: 16$0 14[06$userhost()14] 06requested [13$2-06] from you]
+alias theme.mail @ function_return = [13$BANNER You have $0! new mail messages, total of $1]
+alias theme.away @ function_return = [is idle, $*]
+alias theme.backa @ function_return = [is undead "$*" , gone $tdiff2(${time() - diedtime[$winserv()]})]
+alias theme.backn @ function_return = [is undead, gone $tdiff2(${time() - diedtime[$winserv()]})]
+on ^311 "*" {
+    secho 13ÖÄÄÄÄÄÄÄÄ06Ä13ÄÄ06ÄÄ13Ä06ÄÄÄÄÄÄÄÄÄ14Ä06ÄÄ14ÄÄ06Ä14ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄ  Ä
+    secho 13º 16$1 14\($2@$314\) 14\[$country($right(3 $3))14]
+            secho 13º $mmfunky((ircname))   $dc($5-)
+}
+on ^317 "*" {
+            secho 13º $mmfunky((idle))      $tdiff2($2)
+            secho 13º $mmfunky((signon))    $stime($3)
+}
+on ^307 "*" secho 13º $mmfunky((register))  $1-
+on ^301 "*" secho 13º $mmfunky((away))      $1-
+on ^312 "*" secho 13º $mmfunky((server))    $3-
+on ^319 "*" secho 13º $mmfunky((chanells))  $2-
+on ^313 "*" secho 13º $mmfunky((operator))  $1 is an active whore.
+on ^318 "*" secho 13ÓÄÄÄÄÄÄÄÄ06Ä13ÄÄ06ÄÄ13Ä06ÄÄÄÄÄÄÄÄÄ14Ä06ÄÄ14ÄÄ06Ä14ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ ÄÄ  Ä
+
+set status_user $ssus()
+theme.init
+alias bx.sc (list) {
+    fe ($list) xx {
+        @ :mod = pass(@+ $xx)
+        @ :spc = mod ? mod : [ ]
+        @ :nic = strip(@+ $xx)
+        @ :ret #= [14\[] ## [11] ## spc ## [12] ## [$[10]nic] ## [14\]]
+## [ ]
+    }
+    RETURN $ret
+}
+
+on ^353 "*" {
+    @ temp.scchan = [$2]
+    @ temp.scusers #= [$3-]
+}
+
+on ^366 "*" {
+    xecho -b 14[13U06sers14\(06$temp.scchan14:13$#chanusers($temp.scchan)14\)]
+    fe ($temp.scusers) a b c d e {
+        echo $bx.sc($a $b $c $d $e)
+    }
+    @ temp.scchan =
+    @ temp.scusers =
+}
+on -channel_sync "*" xecho -b ssus: Join to $0 was synched in $1 secs!!
+on ^251 "*" {
+    @ tmp.users = [$3]
+    @ tmp.invis = [$6]
+    @ tmp.servers = [$9]
+    @ tmp.total = tmp.users + tmp.invis
+}
+on ^252 "*" {
+    @ tmp.opers = [$1]
+}
+
+on ^254 "*" {
+    @ tmp.channels = [$1]
+}
+
+on ^255 "*" {
+    @ tmp.local = [$3]
+    set floating_point_math off
+    xecho -b 14[local users on irc14\(16$tmp.local14)] ${(tmp.local
+* 100) / tmp.total}%
+    xecho -b 14[global users on irc14\(16$tmp.users14)] ${(tmp.users * 100) / tmp.total}%
+    xecho -b 14[invisible users on irc14\(16$tmp.invis14)] ${(tmp.invis * 100) / tmp.total}%
+    xecho -b 14[ircops on irc14\(16$tmp.opers14)] ${(tmp.opers * 100) / tmp.total}%
+    xecho -b 14[total users on irc14\(16$tmp.total14)]
+    xecho -b 14[total servers on irc14\(16$tmp.servers14)] 14\(avg. ${tmp.total / tmp.servers} users per server14)
+    xecho -b 14[total channels created14\(16$tmp.channels14)] 14\(avg. ${tmp.total / tmp.channels} users per channel14)
+    set floating_point_math on
+}
+on ^221 "*" xecho -b Your user mode is [$1-]
+on ^256 "*" xecho -b $1-
+on ^257 "*" xecho -b $1-
+on ^258 "*" xecho -b $1-
+on ^259 "*" xecho -b $1-
+on ^371 "*" xecho -b $1-
+on ^372 "*" xecho -b $1-
+on ^376 "*" #
+on ^421 "*" xecho -b $1  $strip(: $2-)
+
+^set input_prompt 14<10$T14> 
+theme.init
+set status_user8 14\( $sar(g/././$ssus()) 14)
+
+# ??funky from crackrock/3.0.1B9
+alias mmfunky if ([$0]) {
+    @ vstr = [$0-]
+    @ vlen = [$strlen($vstr)]
+    @ vshit0 = [${[$strlen($vstr)] - [3]}]
+    @ vshit1 = [${[$strlen($vstr)] - [4]}]
+    @ vshit2 = [${[$strlen($vstr)] - [2]}]
+    @ vshit3 = [${[$strlen($vstr)] - [1]}]
+    @ vshit4 = [${[$strlen($vstr)] - [6]}]
+    if (vlen > 5) {
+        @ function_return = [[1\;30m$left(1 $vstr)[0m[35m$mid(1 1 $vstr)[1\;35m$mid(2 1 $vstr)[1\;35m$mid(3 $vshit4 $vstr)[1\;35m$mid($vshit0 1 $vstr)[0m[35m$mid($vshit2 1 $vstr)[1\;30m$mid($vshit3 1 $vstr)[0m
+    } {
+        @ function_return = [[1\;37m$left(1 $0-)[1\;35m$mid(1 1 $0-)[0m[35m$mid(2 1 $0-)[1\;30m$mid(3 20 $0-)[0m
+    }
+}
+
+alias bbfunky if ([$0]) {
+    @ vstr = [$0-]
+    @ vlen = [$strlen($vstr)]
+    @ vshit0 = [${[$strlen($vstr)] - [3]}]
+    @ vshit1 = [${[$strlen($vstr)] - [4]}]
+    @ vshit2 = [${[$strlen($vstr)] - [2]}]
+    @ vshit3 = [${[$strlen($vstr)] - [1]}]
+    @ vshit4 = [${[$strlen($vstr)] - [6]}]
+    if (vlen > 5) {
+        @ function_return = [[1\;30m$left(1 $vstr)[0m[34m$mid(1 1 $vstr)[1\;34m$mid(2 1 $vstr)[1\;34m$mid(3 $vshit4 $vstr)[1\;34m$mid($vshit0 1 $vstr)[0m[34m$mid($vshit2 1 $vstr)[1\;30m$mid($vshit3 1 $vstr)[0m
+    } {
+        @ function_return = [[1\;37m$left(1 $0-)[1\;34m$mid(1 1 $0-)[0m[34m$mid(2 1 $0-)[1\;30m$mid(3 20 $0-)[0m
+    }
+}
+
+alias ccfunky if ([$0]) {
+    @ vstr = [$0-]
+    @ vlen = [$strlen($vstr)]
+    @ vshit0 = [${[$strlen($vstr)] - [3]}]
+    @ vshit1 = [${[$strlen($vstr)] - [4]}]
+    @ vshit2 = [${[$strlen($vstr)] - [2]}]
+    @ vshit3 = [${[$strlen($vstr)] - [1]}]
+    @ vshit4 = [${[$strlen($vstr)] - [6]}]
+    if (vlen > 5) {
+        @ function_return = [[1\;30m$left(1 $vstr)[0m[36m$mid(1 1 $vstr)[1\;36m$mid(2 1 $vstr)[1\;36m$mid(3 $vshit4 $vstr)[1\;36m$mid($vshit0 1 $vstr)[0m[36m$mid($vshit2 1 $vstr)[1\;30m$mid($vshit3 1 $vstr)[0m
+    } {
+        @ function_return = [[1\;37m$left(1 $0-)[1\;36m$mid(1 1 $0-)[0m[36m$mid(2 1 $0-)[1\;30m$mid(3 15 $0-)[0m
+    }
+}

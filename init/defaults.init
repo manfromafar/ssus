@@ -1,0 +1,44 @@
+# Default script settings
+# Stays until you /config them
+package init-sets
+
+# Script ver
+@ ssus.version           = [$fcat($scriptdir/VERSION)]
+# Public away 0/1 (Show your away status to chans your on)
+@ ss.public_away         = 0
+# Your clientinfo reply
+@ ss.clientinfo          = []
+# Your finger reply
+@ ss.finger              = []
+# Your userinfo reply
+@ ss.userinfo            = []
+# Your time reply
+@ ss.time                = []
+# Default umode
+@ ss.umode               = [i]
+# Kick msg
+@ ss.dkm                 = [But if you hurt what's mine, i'll sure as hell retaliate]
+# buffer - time between CTCP replies
+@ ss.suspend_reply_for   = 3
+# Halt all CTCP reply processing
+@ ss.suspend_replies     = 0
+# Use timestamp or not
+@ ss.timestamp           = 0
+# Highlight word(s) sep by space
+@ ss.autoreply           = [$N]
+# Strip colors/etc
+@ ss.strip_crap          = 0
+# Quit msg
+@ ss.qm                  = [http://www.ssus.org/]
+# Nick completion char
+@ ss.completion_char     = [:]
+# Beep on word highlight
+@ ss.beep_on_autoreply   = 0
+# Dont show CTCP requests if there not replied to
+@ ss.quiet_ctcp          = 1
+# Default theme
+@ ss.theme               = [$scriptdir/themes/ss.thm]
+# CTCP Cloaking
+@ ss.cloak               = 0
+# extended mode view: <@nick> im a big fat op! (default OFF)
+@ ss.extended_mode_view = 0

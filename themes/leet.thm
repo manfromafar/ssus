@@ -1,0 +1,101 @@
+THEMEDESC leet.thm - Leet look (by Serf)
+package theme-leet
+@ theme.name = [leet]
+alias azee {
+    if ( ss.timestamp ) {
+        @ function_return
+    } {
+        @ function_return = [$sar(g/AM/a/$sar(g/PM/p/$Z))]
+    }
+}
+
+^set BANNER -=-
+^set status_format %T [%*%=%N%#] %@%C%+ %W %A %L %H%B %F%M%Q %1 %>%D%2 %3
+^set status_format1 14( %T 14) 14[%*%N%#14] 14[%@%=%C %+14] %A %L %F %1 %>%2
+^eval set status_format2 14\( $uname(%s %r) 14) %S %H%B%M%Q %D %3 %>%8 
+^set status_away 14( dead 14)
+^set status_channel %C
+^set status_chanop 12@
+^set status_clock %T
+^set status_cpu_saver 14(CPU14)
+^set status_hold -more-
+^set status_hold_lines :%B
+^set status_mail  14(Mail, %M14)
+^set status_mode 14(+%+14)
+^set status_nickname 12%N 
+^set status_notify 12( %F 12)
+^set status_oper 12*
+^set status_query  14(Query: %Q14)
+^set status_server 14( %S 14)
+^set status_umode 10+12%#
+^set status_window 8^^^^^^
+@ theme.window_double = 1
+@ theme.reverse_status = 1
+@ theme.tsformat = [%I:%M%p]
+@ ss.theme = [$scriptdir/themes/leet.thm]
+alias theme.tslook @ function_return = [10\($sar(g/:/./$sar(g/AM/a/$sar(g/PM/p/$*)))10)]
+alias theme.pub @ function_return = [14\($014) $dc($2-)]
+alias theme.pub_ar @ function_return = [14\($014) $dc($2-)]
+alias theme.pubother @ function_return = [14\($0:$114) $dc($2-)]
+alias theme.pubother_ar @ function_return = [14\($0:$114) $dc($2-)]
+alias theme.leavea @ function_return = [2$BANNER 11p10art14/$0 14\($214) left $1 ${ss.timestamp? [] : [at $sar(g/././$tr(/:/./$azee())) $partmsg($3-)]}]
+alias theme.leaveu @ function_return = [2$BANNER 11p10art14/$0 14\($214) left $1 ${ss.timestamp? [] : [at $sar(g/././$tr(/:/./$azee())) $partmsg($3-)]}]
+alias theme.joina @ function_return = [12$BANNER 2j12oin14/$0 14\($214) joined $1 ${ss.timestamp? [] : [at $sar(g/././$tr(/:/./$azee()))]}]
+alias theme.joinu @ function_return = [12$BANNER 2j12oin14/$0 14\($214) joined $1 ${ss.timestamp? [] : [at $sar(g/././$tr(/:/./$azee()))]}]
+alias theme.sendpublica @ function_return = [12\(${N}12) $1-]
+alias theme.sendpublicu @ function_return = [[$0] 12\(${N}12) $1-]
+alias theme.sendactionchan @ function_return = [12* $N $1-]
+alias theme.sendactionpriv @ function_return = [14* -> $0: $N $1-]
+alias theme.notifysignon @ function_return = [$BANNER Signon 14\($0\!$114)]
+alias theme.notifysignoff @ function_return = [$BANNER Signoff 14\($014)]
+alias theme.sendmsg @ function_return = [ 14[10msg14\(12$014)] $1-]
+alias theme.msg @ function_return = [ 14[10$014!12$userhost()14] $dc($1-)]
+alias theme.notice @ function_return = [ 14-10$014!12$userhost()14- $dc($1-)]
+alias theme.sendnotice @ function_return = [ 14[10notice14\(12$014)] $1-]
+alias theme.ctcpreply @ function_return = [2$BANNER CTCP $2 reply from $0: $dc($3-)]
+alias theme.youarenot @ function_return = [10$BANNER You're not on a channel]
+alias theme.cantfindarg @ function_return = [10$BANNER Can't find $arg\.]
+alias theme.notchanop @ function_return = [10$BANNER You are not chanop on $C\.]
+alias theme.nomatchbans @ function_return [11$BANNER No matching BANs found on $C\.]
+alias theme.signoffa @ function_return = [10$BANNER 14S12ignoff14/$1 14\($dc($2-)14)]
+alias theme.signoffu @ function_return = [10$BANNER 14S12ignoff14/$1 \($0) 14\($dc($2-)14)]
+alias theme.modea @ function_return = [11$BANNER Mode Change 14\($2-14) on $1 by $0] 
+alias theme.modeu @ function_return = [11$BANNER Mode Change 14\($2-14) on $1 by $0]
+alias theme.modes @ function_return = [11$BANNER Mode change 14\($2-14) for user $1 by $0]
+alias theme.servmodea @ function_return = [11$BANNER Mode hack 14\($2-14) on $1 by $0]
+alias theme.servmodeu @ function_return = [11$BANNER Mode hack 14\($2-14) on $1 by $0]
+alias theme.kicked @ function_return = [11$BANNER You have been kicked off channel $2 by $1 \($dc($3-))]
+alias theme.kicka @ function_return = [11$BANNER $0 has been kicked off $2 by $1 \($dc($3-))]
+alias theme.kicku @ function_Return = [11$BANNER $0 has been kicked off $2 by $1 \($dc($3-))]
+alias theme.topica @ function_return = [11$BANNER $0 has changed the topic on $1 to $dc($2-)]
+alias theme.topicu @ function_return = [11$BANNER $0 has changed topic on $1 to $dc($2-)]
+alias theme.action_ara @ function_return = [14* 16$0 $dc($2-)]
+alias theme.action_arm @ function_return = [14* 16$0 $dc($2-)]
+alias theme.action_aru @ function_return = [14* 16$0/$1 $dc($2-)]
+alias theme.actiona @ function_return = [14* $0 $dc($2-)]
+alias theme.actionm @ function_return = [14*> $0 $dc($2-)]
+alias theme.actionu @ function_return = [14* $0/$1 $dc($2-)]
+alias theme.ctcpreq @ function_return = [11$BANNER CTCP $strip(: $0) request from $before(! $1) 14\($after(! $1)14) to $2]
+alias theme.ctcpreqnorep @ function_return = [11$BANNER CTCP $strip(: $0) request from $before(! $1) 14\($after(! $1)14) to $2 [no reply]]
+alias theme.ctcprequest @ function_return = [11$BANNER CTCP $2 request from $0 14\($userhost()14) to $1]
+alias theme.ctcprequestarg @ function_return = [11$BANNER CTCP 14\($2-14) request from $0 14\($userhost()14) to $1]
+alias theme.mail @ function_return = [13$BANNER You have $0! new mail messages, total of $1]
+alias theme.away @ function_return = [is idle, $*]
+alias theme.backa @ function_return = [is undead "$*" , gone $tdiff2(${time() - diedtime[$winserv()]})]
+alias theme.backn @ function_return = [is undead, gone $tdiff2(${time() - diedtime[$winserv()]})]
+on ^421 "*" xecho -b 16Error: $1 -- 14Bad command
+on ^311 "*" {
+    secho 14\(Nick    14) $1!$2@$3 14\($country($right(3 $3))14)
+    secho 14\(Ircname 14) $dc($5-)
+}
+on ^317 "*" {
+    secho 14\(Idle    14) $tdiff2($2)
+    secho 14\(Signon  14) $stime($3)
+}
+on ^312 "*" secho 14\(Server  14) $0 \($3-)
+on ^319 "*" secho 14\(Channels14) $2-
+on ^313 "*" secho 14\(Operator14) $1-
+^set input_prompt 14\( $T 14) 
+theme.init
+set status_user8 14\( $sar(g/././$ssus()) 14)
+xecho -b leet.thm loaded!
